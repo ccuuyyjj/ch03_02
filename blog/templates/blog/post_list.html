@@ -1,32 +1,6 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
+{% extends 'blog/base.html' %}
 
-<head>
-    <title>Django Girls blog</title>
-    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
-        integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-</head>
-
-<body>
-    <div class="page-header">
-        <h1><a href="/">Django Girls Blog</a></h1>
-    </div>
-    <div class="content container">
-        <div class="sample-img">
-            <img src="{% static 'img/p_08_sunrise.jpg' %}">
-        </div>
-        <div class="sample-video">
-            <video width="640" height="360" controls>
-                <source src="{% static 'video/p_08_Big_Buck_Bunny_360_10s_10MB.mp4' %}" type="video/mp4">
-            </video>
-        </div>
-        <div class="row">
-            <div class="col-md-8">
+{% block content %}
                 {% for post in posts %}
                 <div class="post">
                     <div class="date">
@@ -36,9 +10,4 @@
                     <p>{{ post.text|linebreaksbr }}</p>
                 </div>
                 {% endfor %}
-            </div>
-        </div>
-    </div>
-</body>
-
-</html>
+{% endblock %}
